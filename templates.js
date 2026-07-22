@@ -1,0 +1,237 @@
+// ============================================
+// SiteForge AI — templates.js
+// Ready-made landing page templates
+// ============================================
+
+const Templates = (() => {
+    const templates = {
+        restaurant: {
+            name: 'Restaurant',
+            icon: '🍽️',
+            seo: { title: 'La Bella — Fine Dining Restaurant', description: 'Experience exquisite cuisine.',
+                keywords: 'restaurant, dining, food' },
+            sections: [
+                { id: Utils.uid(), type: 'hero', label: 'Hero', title: 'La Bella Ristorante',
+                    subtitle: 'Authentic Italian Cuisine', description: 'Reserve your table today.',
+                    buttonText: 'Book Now', buttonLink: '#', buttonStyle: 'solid', bgColor: '#1a1a1a',
+                    textColor: '#ffffff', padding: 100, image: '' },
+                { id: Utils.uid(), type: 'about', label: 'About', title: 'Our Story',
+                    subtitle: 'Since 1985', description: 'Family-owned restaurant with passion for food.',
+                    bgColor: '#ffffff', textColor: '#1a1a25', padding: 60,
+                    image: 'https://placehold.co/400x300/dc2626/fff?text=Restaurant' },
+                { id: Utils.uid(), type: 'features', label: 'Features', title: 'Why Dine With Us',
+                    subtitle: '', item1Title: 'Fresh Ingredients', item1Desc: 'Locally sourced daily.',
+                    item2Title: 'Expert Chefs', item2Desc: 'Award-winning team.',
+                    item3Title: 'Cozy Ambiance', item3Desc: 'Perfect atmosphere.', bgColor: '#fef2f2',
+                    textColor: '#1a1a25', padding: 60 },
+                { id: Utils.uid(), type: 'footer', label: 'Footer', title: 'La Bella Ristorante',
+                    description: '© 2024. Open daily 11AM-10PM.', bgColor: '#1e293b', textColor: '#ffffff',
+                    padding: 40 },
+            ],
+        },
+        casino: {
+            name: 'Casino',
+            icon: '🎰',
+            seo: { title: 'Royal Vegas Casino — Play & Win', description: 'Premium online casino experience.',
+                keywords: 'casino, gambling, slots' },
+            sections: [
+                { id: Utils.uid(), type: 'hero', label: 'Hero', title: 'Royal Vegas Casino',
+                    subtitle: 'Win Big Tonight', description: 'Join thousands of winners.',
+                    buttonText: 'Play Now', buttonLink: '#', buttonStyle: 'solid', bgColor: '#0f0f0f',
+                    textColor: '#ffd700', padding: 100, image: '' },
+                { id: Utils.uid(), type: 'pricing', label: 'Pricing', title: 'Bonus Packages',
+                    subtitle: 'Choose your bonus', bgColor: '#1a1a1a', textColor: '#ffffff', padding: 60 },
+                { id: Utils.uid(), type: 'footer', label: 'Footer', title: 'Royal Vegas',
+                    description: '© 2024. 18+ only. Gamble responsibly.', bgColor: '#0f0f0f',
+                    textColor: '#ffd700', padding: 40 },
+            ],
+        },
+        crypto: {
+            name: 'Crypto',
+            icon: '₿',
+            seo: { title: 'CryptX — Next-Gen Crypto Platform', description: 'Trade crypto with confidence.',
+                keywords: 'crypto, bitcoin, blockchain' },
+            sections: [
+                { id: Utils.uid(), type: 'hero', label: 'Hero', title: 'Trade Crypto Like a Pro',
+                    subtitle: 'Zero fees. Instant trades.', description: 'The future of finance is here.',
+                    buttonText: 'Start Trading', buttonLink: '#', buttonStyle: 'solid', bgColor: '#0a0a1a',
+                    textColor: '#ffffff', padding: 100, image: '' },
+                { id: Utils.uid(), type: 'features', label: 'Features', title: 'Platform Features',
+                    item1Title: 'Secure', item1Desc: 'Military-grade encryption.',
+                    item2Title: 'Fast', item2Desc: 'Lightning transactions.',
+                    item3Title: 'Global', item3Desc: 'Available worldwide.', bgColor: '#ffffff',
+                    textColor: '#1a1a25', padding: 60 },
+                { id: Utils.uid(), type: 'footer', label: 'Footer', title: 'CryptX',
+                    description: '© 2024 CryptX. All rights reserved.', bgColor: '#0a0a1a',
+                    textColor: '#ffffff', padding: 40 },
+            ],
+        },
+        portfolio: {
+            name: 'Portfolio',
+            icon: '🎨',
+            seo: { title: 'Jane Doe — Creative Portfolio', description: 'Showcasing creative work.',
+                keywords: 'portfolio, designer, creative' },
+            sections: [
+                { id: Utils.uid(), type: 'hero', label: 'Hero', title: 'Jane Doe',
+                    subtitle: 'Creative Designer & Developer',
+                    description: 'I craft beautiful digital experiences.', buttonText: 'View My Work',
+                    buttonLink: '#', buttonStyle: 'solid', bgColor: '#ffffff', textColor: '#1a1a25',
+                    padding: 100, image: '' },
+                { id: Utils.uid(), type: 'gallery', label: 'Gallery', title: 'Selected Works',
+                    subtitle: 'Recent projects', bgColor: '#f8fafc', textColor: '#1a1a25', padding: 60 },
+                { id: Utils.uid(), type: 'contact', label: 'Contact', title: 'Get In Touch',
+                    subtitle: 'Let\'s work together', bgColor: '#ffffff', textColor: '#1a1a25',
+                padding: 60 },
+            ],
+        },
+        agency: {
+            name: 'Agency',
+            icon: '🏢',
+            seo: { title: 'Nova Agency — Creative Solutions', description: 'Full-service digital agency.',
+                keywords: 'agency, marketing, digital' },
+            sections: [
+                { id: Utils.uid(), type: 'hero', label: 'Hero', title: 'We Grow Brands',
+                    subtitle: 'Full-Service Digital Agency',
+                    description: 'Strategy, design, and development under one roof.', buttonText: 'Get a Quote',
+                    buttonLink: '#', buttonStyle: 'solid', bgColor: '#1e40af', textColor: '#ffffff',
+                    padding: 100, image: '' },
+                { id: Utils.uid(), type: 'services', label: 'Services', title: 'What We Do',
+                    item1Title: 'Branding', item1Desc: 'Identity that stands out.',
+                    item2Title: 'Web Design', item2Desc: 'Beautiful, fast websites.',
+                    item3Title: 'Marketing', item3Desc: 'Growth-driven campaigns.', bgColor: '#ffffff',
+                    textColor: '#1a1a25', padding: 60 },
+                { id: Utils.uid(), type: 'testimonials', label: 'Testimonials', title: 'Client Love',
+                    subtitle: '', bgColor: '#f1f5f9', textColor: '#1a1a25', padding: 60 },
+                { id: Utils.uid(), type: 'footer', label: 'Footer', title: 'Nova Agency',
+                    description: '© 2024 Nova Agency.', bgColor: '#1e293b', textColor: '#ffffff',
+                padding: 40 },
+            ],
+        },
+        business: {
+            name: 'Business',
+            icon: '💼',
+            seo: { title: 'Apex Business Solutions', description: 'Professional business services.',
+                keywords: 'business, consulting, solutions' },
+            sections: [
+                { id: Utils.uid(), type: 'hero', label: 'Hero', title: 'Grow Your Business',
+                    subtitle: 'Expert consulting for modern companies',
+                    description: 'Transform your operations with our proven methodology.',
+                    buttonText: 'Schedule Consultation', buttonLink: '#', buttonStyle: 'solid', bgColor: '#0f172a',
+                    textColor: '#ffffff', padding: 100, image: '' },
+                { id: Utils.uid(), type: 'features', label: 'Features', title: 'Why Choose Us',
+                    item1Title: 'Expertise', item1Desc: '20+ years experience.',
+                    item2Title: 'Results', item2Desc: 'Proven track record.',
+                    item3Title: 'Support', item3Desc: '24/7 dedicated team.', bgColor: '#ffffff',
+                    textColor: '#1a1a25', padding: 60 },
+                { id: Utils.uid(), type: 'footer', label: 'Footer', title: 'Apex Solutions',
+                    description: '© 2024 Apex Business Solutions.', bgColor: '#0f172a', textColor: '#ffffff',
+                    padding: 40 },
+            ],
+        },
+        fitness: {
+            name: 'Fitness',
+            icon: '💪',
+            seo: { title: 'FitPro Gym — Transform Your Body', description: 'Premium fitness center.',
+                keywords: 'fitness, gym, workout' },
+            sections: [
+                { id: Utils.uid(), type: 'hero', label: 'Hero', title: 'Transform Your Body',
+                    subtitle: 'Premium Fitness Center',
+                    description: 'State-of-the-art equipment and expert trainers.', buttonText: 'Join Now',
+                    buttonLink: '#', buttonStyle: 'solid', bgColor: '#1a1a1a', textColor: '#ffffff',
+                    padding: 100, image: '' },
+                { id: Utils.uid(), type: 'pricing', label: 'Pricing', title: 'Membership Plans',
+                    subtitle: 'Find your fit', bgColor: '#ffffff', textColor: '#1a1a25', padding: 60 },
+                { id: Utils.uid(), type: 'footer', label: 'Footer', title: 'FitPro Gym',
+                    description: '© 2024 FitPro. All rights reserved.', bgColor: '#1a1a1a',
+                    textColor: '#ffffff', padding: 40 },
+            ],
+        },
+        telegram: {
+            name: 'Telegram Channel',
+            icon: '📢',
+            seo: { title: 'Join Our Telegram Channel', description: 'Exclusive content and updates.',
+                keywords: 'telegram, channel, community' },
+            sections: [
+                { id: Utils.uid(), type: 'hero', label: 'Hero', title: 'Join Our Community',
+                    subtitle: 'Exclusive Telegram Channel',
+                    description: 'Get daily insights, tips, and exclusive content.', buttonText: 'Join on Telegram',
+                    buttonLink: '#', buttonStyle: 'solid', bgColor: '#0088cc', textColor: '#ffffff',
+                    padding: 100, image: '' },
+                { id: Utils.uid(), type: 'features', label: 'Features', title: 'What You Get',
+                    item1Title: 'Daily Updates', item1Desc: 'Fresh content every day.',
+                    item2Title: 'Exclusive Tips', item2Desc: 'Insider knowledge.',
+                    item3Title: 'Community', item3Desc: 'Connect with peers.', bgColor: '#ffffff',
+                    textColor: '#1a1a25', padding: 60 },
+                { id: Utils.uid(), type: 'footer', label: 'Footer', title: 'Telegram Community',
+                    description: '© 2024. Join us on Telegram!', bgColor: '#0088cc', textColor: '#ffffff',
+                    padding: 40 },
+            ],
+        },
+        saas: {
+            name: 'SaaS',
+            icon: '☁️',
+            seo: { title: 'CloudFlow — SaaS Platform', description: 'Streamline your workflow.',
+                keywords: 'saas, software, cloud' },
+            sections: [
+                { id: Utils.uid(), type: 'hero', label: 'Hero', title: 'Streamline Your Workflow',
+                    subtitle: 'The all-in-one SaaS platform',
+                    description: 'Manage projects, teams, and clients from one place.', buttonText: 'Start Free Trial',
+                    buttonLink: '#', buttonStyle: 'solid', bgColor: '#7c3aed', textColor: '#ffffff',
+                    padding: 100, image: '' },
+                { id: Utils.uid(), type: 'features', label: 'Features', title: 'Powerful Features',
+                    item1Title: 'Automation', item1Desc: 'Save hours every week.',
+                    item2Title: 'Analytics', item2Desc: 'Data-driven insights.',
+                    item3Title: 'Integrations', item3Desc: 'Connect your tools.', bgColor: '#ffffff',
+                    textColor: '#1a1a25', padding: 60 },
+                { id: Utils.uid(), type: 'pricing', label: 'Pricing', title: 'Simple Pricing',
+                    subtitle: 'No hidden fees', bgColor: '#f8fafc', textColor: '#1a1a25', padding: 60 },
+                { id: Utils.uid(), type: 'footer', label: 'Footer', title: 'CloudFlow',
+                    description: '© 2024 CloudFlow Inc.', bgColor: '#1e293b', textColor: '#ffffff',
+                padding: 40 },
+            ],
+        },
+        mobileapp: {
+            name: 'Mobile App',
+            icon: '📱',
+            seo: { title: 'AppName — Download Now', description: 'The must-have mobile app.',
+                keywords: 'app, mobile, download' },
+            sections: [
+                { id: Utils.uid(), type: 'hero', label: 'Hero', title: 'The App You Need',
+                    subtitle: 'Available on iOS & Android',
+                    description: 'Download now and transform your daily routine.', buttonText: 'Download Free',
+                    buttonLink: '#', buttonStyle: 'solid', bgColor: '#000000', textColor: '#ffffff',
+                    padding: 100, image: '' },
+                { id: Utils.uid(), type: 'features', label: 'Features', title: 'App Features',
+                    item1Title: 'Intuitive', item1Desc: 'Easy to use.',
+                    item2Title: 'Fast', item2Desc: 'Blazing performance.',
+                    item3Title: 'Offline', item3Desc: 'Works without internet.', bgColor: '#ffffff',
+                    textColor: '#1a1a25', padding: 60 },
+                { id: Utils.uid(), type: 'testimonials', label: 'Testimonials', title: 'User Reviews',
+                    subtitle: '', bgColor: '#f8fafc', textColor: '#1a1a25', padding: 60 },
+                { id: Utils.uid(), type: 'footer', label: 'Footer', title: 'AppName',
+                    description: '© 2024 AppName. Download today!', bgColor: '#000000', textColor: '#ffffff',
+                    padding: 40 },
+            ],
+        },
+    };
+
+    /**
+     * Get all template keys
+     */
+    function getTemplateKeys() {
+        return Object.keys(templates);
+    }
+
+    /**
+     * Get template by key
+     */
+    function getTemplate(key) {
+        return templates[key] || null;
+    }
+
+    return {
+        templates,
+        getTemplateKeys,
+        getTemplate,
+    };
+})();
