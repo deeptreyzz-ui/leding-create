@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SiteForge AI — Build Beautiful Websites Instantly</title>
+    <meta name="description" content="Create modern landing pages without coding. Visual drag-and-drop builder with live preview.">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- LOADER -->
+    <div class="loader-overlay" id="loader">
+        <div class="loader-ring"><span></span></div>
+        <p>SiteForge AI</p>
+    </div>
+
+    <!-- NOTIFICATION CONTAINER -->
+    <div class="notification-container" id="notificationContainer"></div>
+
+    <!-- LANDING PAGE (BEFORE EDITOR) -->
+    <main class="landing" id="landingPage">
+        <div class="landing-bg"></div>
+        <nav class="landing-nav glass">
+            <span class="logo">⚡ SiteForge AI</span>
+            <button class="btn-ghost" id="toggleThemeLanding" aria-label="Toggle theme">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+            </button>
+        </nav>
+        <section class="landing-hero">
+            <h1 class="hero-title">Build Beautiful Websites <span class="neon-text">Instantly</span></h1>
+            <p class="hero-desc">Create modern landing pages without coding. Drag, drop, customize, and export — all in your browser.</p>
+            <button class="btn-primary glow" id="startBuilding">Start Building →</button>
+        </section>
+        <div class="landing-features glass">
+            <div class="lf-item"><span>🎨</span> Visual Editor</div>
+            <div class="lf-item"><span>📦</span> 10+ Templates</div>
+            <div class="lf-item"><span>⚡</span> Live Preview</div>
+            <div class="lf-item"><span>💾</span> Export Ready</div>
+        </div>
+    </main>
+
+    <!-- EDITOR (HIDDEN INITIALLY) -->
+    <div class="editor-container" id="editorContainer" style="display:none;">
+        <!-- TOP BAR -->
+        <header class="editor-topbar glass">
+            <div class="topbar-left">
+                <button class="btn-icon" id="backToLanding" title="Back">←</button>
+                <span class="logo-sm">⚡ SiteForge AI</span>
+                <span class="badge">Editor</span>
+            </div>
+            <div class="topbar-center">
+                <button class="btn-tool" id="undoBtn" title="Undo (Ctrl+Z)">↩</button>
+                <button class="btn-tool" id="redoBtn" title="Redo (Ctrl+Y)">↪</button>
+                <button class="btn-tool" id="previewBtn" title="Preview">👁</button>
+                <button class="btn-tool" id="saveBtn" title="Save">💾</button>
+            </div>
+            <div class="topbar-right">
+                <button class="btn-tool" id="toggleThemeEditor" title="Toggle Theme">🌓</button>
+                <button class="btn-primary sm" id="exportBtn">Export</button>
+            </div>
+        </header>
+
+        <!-- MAIN EDITOR LAYOUT -->
+        <div class="editor-main">
+            <!-- LEFT SIDEBAR: Components & Templates -->
+            <aside class="sidebar left glass" id="leftSidebar">
+                <div class="sidebar-tabs">
+                    <button class="stab active" data-tab="components">Components</button>
+                    <button class="stab" data-tab="templates">Templates</button>
+                </div>
+                <div class="sidebar-content" id="sidebarContent">
+                    <!-- Components tab -->
+                    <div class="tab-panel active" id="tab-components">
+                        <div class="component-grid" id="componentGrid"></div>
+                    </div>
+                    <!-- Templates tab -->
+                    <div class="tab-panel" id="tab-templates">
+                        <div class="template-grid" id="templateGrid"></div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- CENTER: Live Preview / Canvas -->
+            <div class="editor-canvas" id="editorCanvas">
+                <div class="canvas-toolbar glass">
+                    <span>Sections</span>
+                    <button class="btn-icon sm" id="addSectionBtn" title="Add Section">＋</button>
+                </div>
+                <div class="canvas-scroll" id="canvasScroll">
+                    <div class="live-preview" id="livePreview"></div>
+                </div>
+            </div>
+
+            <!-- RIGHT SIDEBAR: Properties -->
+            <aside class="sidebar right glass" id="rightSidebar">
+                <h3>Properties</h3>
+                <p class="muted" id="noSelectionMsg">Select a section to edit</p>
+                <div class="props-panel" id="propsPanel" style="display:none;"></div>
+            </aside>
+        </div>
+
+        <!-- SEO GENERATOR MODAL -->
+        <div class="modal-overlay" id="seoModal" style="display:none;">
+            <div class="modal glass">
+                <h3>SEO Generator</h3>
+                <label>Title <input type="text" id="seoTitle" placeholder="Page title"></label>
+                <label>Description <textarea id="seoDesc" rows="2" placeholder="Meta description"></textarea></label>
+                <label>Keywords <input type="text" id="seoKeywords" placeholder="keyword1, keyword2"></label>
+                <label>OG Title <input type="text" id="seoOgTitle" placeholder="Open Graph title"></label>
+                <div class="modal-actions">
+                    <button class="btn-primary" id="applySeo">Apply</button>
+                    <button class="btn-ghost" id="closeSeoModal">Cancel</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- EXPORT MODAL -->
+        <div class="modal-overlay" id="exportModal" style="display:none;">
+            <div class="modal glass export-modal">
+                <h3>Export Project</h3>
+                <div class="export-options">
+                    <button class="btn-export" data-export="html">📄 Download HTML</button>
+                    <button class="btn-export" data-export="css">🎨 Download CSS</button>
+                    <button class="btn-export" data-export="js">⚙️ Download JS</button>
+                    <button class="btn-export" data-export="zip">📦 Download ZIP</button>
+                    <button class="btn-export" data-export="copy">📋 Copy HTML</button>
+                    <button class="btn-export" data-export="seo">🔍 SEO Settings</button>
+                </div>
+                <button class="btn-ghost" id="closeExportModal">Close</button>
+            </div>
+        </div>
+
+        <!-- FULL PREVIEW MODAL -->
+        <div class="modal-overlay full-preview-overlay" id="fullPreviewModal" style="display:none;">
+            <div class="full-preview-container">
+                <button class="btn-icon close-preview" id="closeFullPreview">✕</button>
+                <div class="full-preview-frame" id="fullPreviewFrame"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DRAG OVERLAY -->
+    <div class="drag-ghost" id="dragGhost" style="display:none;"></div>
+
+    <script src="utils.js"></script>
+    <script src="storage.js"></script>
+    <script src="components.js"></script>
+    <script src="templates.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
